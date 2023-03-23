@@ -1,3 +1,3 @@
-for (let i = 1000; i >= 0; i -= 7) {
-  console.log(i);
-}
+let array = [4, 5, 6];
+array[7] = 7;
+console.log(array[4]);
