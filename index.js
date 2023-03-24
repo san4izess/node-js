@@ -20,7 +20,6 @@ const A = 0;
 const B = Math.PI / 6;
 const C = 1;
 const D = 3.5;
-const eps = 0.0000000000000000000000002;
 const N = 40;
 
 const I1 = integrateSimpson(F1, A, B, N);
