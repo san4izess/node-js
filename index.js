@@ -27,3 +27,4 @@ const I2 = integrateSimpson(F2, C, D, N);
 
 console.log("I1 =", I1);
 console.log("I2 =", I2);
+console.log("hello world");
