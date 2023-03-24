@@ -1,30 +1,29 @@
-function F1(x) {
-  return (Math.sin(3 * x) * (1 + x * x)) / (1 + x * x * x);
+let a = 0.4,
+  b = 1;
+let M = 4.3;
+let eps = 0.001;
+
+function f(x) {
+  return 2 * x * Math.sin(x) - Math.cos(x);
 }
 
-function F2(x) {
-  return Math.log(x);
-}
+while (Math.abs(b - a) > eps) {
+  let x0 = (a + b) / 2;
+  let fx0 = f(x0);
 
-function integrateSimpson(f, a, b, n, eps) {
-  let h = (b - a) / n;
-  let sum = f(a) + f(b);
-  let x = 0;
-  for (let i = 1; i < n; i++) {
-    x = a + i * h;
-    sum += f(x) * (i % 2 === 0 ? 2 : 4);
+  if (Math.abs(fx0) < eps) {
+    console.log("Найдено решение: ", x0);
+    break;
   }
-  return (h / 3) * (sum + 4 * f(x - h) - 2 * f(x - 2 * h));
+
+  if (Math.sign(fx0) === Math.sign(f(a))) {
+    a = x0;
+  } else {
+    b = x0;
+  }
+
+  let dfx0 = 2 * Math.sin(x0) + 2 * x0 * Math.cos(x0) + Math.sin(x0);
+  if (Math.abs(dfx0) > M) {
+    M = Math.abs(dfx0);
+  }
 }
-
-const A = 0;
-const B = Math.PI / 6;
-const C = 1;
-const D = 3.5;
-const N = 40;
-const eps = 0.0002;
-const I1 = integrateSimpson(F1, A, B, N);
-const I2 = integrateSimpson(F2, C, D, N);
-
-console.log("I1 =", I1);
-console.log("I2 =", I2);
