@@ -1,5 +1,5 @@
 const fs = require("fs");
 
 fs.readFile("file.txt", "utf-8", (error, data) => {
-  fs.writeFile("test2.txt", data, () => {});
+  fs.writeFile("test2.txt", `${data}add a example text`, () => {});
 });
