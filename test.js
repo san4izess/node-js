@@ -1,5 +1,13 @@
 const userName = "Sasha";
 
-const sayHi = (userName) => `Hello, ${userName}`;
+const sayHi = (userName) => {
+  return `Hello, ${userName}`;
+};
 
-console.log(sayHi(userName));
+const lol = "lol";
+
+module.exports = {
+  sayHi,
+  userName,
+  lol,
+};
