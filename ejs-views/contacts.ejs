@@ -7,7 +7,7 @@
     <ul class="contacts">
       <% if (contacts.length) { %> <% contacts.forEach(({ link, name }) => { %>
       <li>
-        <a href="<%= link %>"><%= name %></a>
+        <a href="<%= link %>" target="_blank"><%= name %></a>
       </li>
       <% }) %> <% } %>
     </ul>
